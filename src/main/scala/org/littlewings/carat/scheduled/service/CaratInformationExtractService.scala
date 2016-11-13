@@ -5,8 +5,6 @@ import java.time.format.DateTimeFormatter
 import javax.enterprise.context.ApplicationScoped
 import javax.inject.Inject
 
-import org.apache.deltaspike.core.api.exclude.Exclude
-import org.apache.deltaspike.core.api.projectstage.ProjectStage
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.littlewings.carat.scheduled.config.CaratTaskConfig
@@ -40,7 +38,12 @@ class CaratInformationExtractService {
           else
             siteUrl + href
 
-        Information(LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy.MM.dd")), absoluteLink, content)
+        val splittedDate = date.split("\\.")
+        val (year, month, day) = (splittedDate(0), splittedDate(1), splittedDate(2))
+
+        val revisedDate = year + "." + (if (month.size < 2) "0" + month else month) + "." + (if (day.size < 2) "0" + day else day)
+
+        Information(LocalDate.parse(revisedDate, DateTimeFormatter.ofPattern("yyyy.MM.dd")), absoluteLink, content)
       }.toVector
   }
 
