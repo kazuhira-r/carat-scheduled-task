@@ -1,6 +1,6 @@
 name := "carat-scheduled-task"
 
-version := "0.1.0"
+version := "0.1.1"
 
 organization := "org.littlewings"
 
@@ -26,7 +26,7 @@ val javaeeWebApiVersion = "7.0"
 val deltaSpikeVersion = "1.7.1"
 val quartzVersion = "2.2.3"
 val weldVersion = "2.3.5.Final"
-val jsoupVersion = "1.9.2"
+val jsoupVersion = "1.10.1"
 val twitter4jVersion = "4.0.4"
 val slf4jVersion = "1.7.21"
 val scalaTestVersion = "3.0.0"
